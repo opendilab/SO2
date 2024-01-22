@@ -2,7 +2,7 @@
 
 **SO2 offers a fresh perspective on offline-to-online reinforcement learning through Q-value estimation and presents a straightforward yet effective implementation.**
 
-![](img/SO2.png)
+![](assets/SO2.png)
 
 > [**SO2: A Perspective of Q-value Estimation on Offline-to-Online Reinforcement Learning**](https://arxiv.org/abs/2312.07685)               
 > Yinmin Zhang, Jie Liu, Chuming Li, Yazhe Niu, Yaodong Yang, Yu Liu, Wanli Ouyang
@@ -31,10 +31,10 @@ pip install git+https://github.com/Farama-Foundation/d4rl@master#egg=d4rl
 # install SO2
 git clone https://github.com/opendilab/SO2
 cd SO2
-pip install -e .
+pip install -r requirements.txt
 
-cd exp/halfcheetah-random
-python config.py
+# run d4rl experiment
+python3 -u so2/d4rl_main.py
 ```
 
 ### Install environment
@@ -71,7 +71,7 @@ pip install git+https://github.com/Farama-Foundation/d4rl@master#egg=d4rl
 ```
 git clone https://github.com/opendilab/SO2
 cd SO2
-pip install -e .
+pip install -r requirements.txt
 ```
 
 ## Getting Started
@@ -79,13 +79,12 @@ pip install -e .
 ### MuJoco
 
 ```
-cd exp/halfcheetah-random
-python config.py
+python3 -u so2/d4rl_main.py
 ```
 
 ## Results
 ### MuJoCo
-![](img/MuJoCo.png)
+![](assets/MuJoCo.png)
 
 ## License
 
