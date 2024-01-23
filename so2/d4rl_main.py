@@ -35,6 +35,7 @@ def offline_train(args):
     main_config.policy.learn.concat_online_ratio = 0.1
     main_config.policy.learn.batch_size = 256
     main_config.policy.learn.online_ratio = 0.5  # just for use offline buffer, but online train
+    main_config.policy.learn.online_pretrain_iterations = 100
     main_config.policy.learn.offline_data_ratio = 1
     main_config.policy.learn.without_timeouts_done = True
 

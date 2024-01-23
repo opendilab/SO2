@@ -52,6 +52,7 @@ def train_offline2online(
     )
     for d in dataset.data:
         d['reward'] = d['reward'].reshape(-1)
+        d['collect_iter'] = -1
     sample_size = int(len(dataset) * cfg.policy.learn.offline_data_ratio)
     offline_buffer.push(random.sample(dataset.data, sample_size), cur_collector_envstep=collector.envstep)
 
@@ -65,11 +66,13 @@ def train_offline2online(
         train_data = offline_buffer.sample(learner.policy.get_attribute('batch_size'), learner.train_iter)
         learner.train(train_data, collector.envstep)
     policy._cfg.learn.only_value = False
+    logging.info('Offline pretrain phase is finished')
 
     # Random collect
     collector.reset_policy(policy.collect_mode)
     new_data = collector.collect(n_sample=cfg.policy.random_collect_size)
     replay_buffer.push(new_data, cur_collector_envstep=collector.envstep)
+    logging.info('Random collect phase is finished')
 
     # Online pretrain
     policy._cfg.learn.only_value = True
@@ -81,6 +84,7 @@ def train_offline2online(
         train_data = replay_buffer.sample(online_bs, learner.train_iter)
         learner.train(train_data, collector.envstep)
     policy._cfg.learn.only_value = False
+    logging.info('Online pretrain phase is finished, online training starts...')
 
     # Online training
     stop = False
@@ -91,7 +95,7 @@ def train_offline2online(
                 break
         # max training env steps
         if collector.envstep > max_env_step:
-            logging('Training in finished')
+            logging.info('Training in finished')
             break
         # Collect data by default config n_sample/n_episode
         if cfg.policy.learn.concat_online_ratio > 0:
