@@ -1,1 +1,2 @@
-git+http://github.com/opendilab/DI-engine@main
+git+http://github.com/opendilab/DI-engine@v0.5.1
+gym==0.24.0
