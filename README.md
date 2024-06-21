@@ -31,7 +31,7 @@ pip install git+https://github.com/Farama-Foundation/d4rl@master#egg=d4rl
 # install SO2
 conda create --name SO2 python=3.7 -y
 conda activate SO2
-git clone https://github.com/opendilab/SO2@code
+git clone -b code https://github.com/opendilab/SO2.git
 pip install -e SO2
 
 # run d4rl experiment
