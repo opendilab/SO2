@@ -10,7 +10,39 @@
 
 ## Updates
 
-- (12/2024) Code has been released!
+- (06/2024) Independent code has been released!
+- (12/2023) Code has been released!
+
+## Recommended reproduction workflow
+
+Considering the difficulty of tracking the main branch in the DI-engine updates, we have updated the independent code branch to reproduce the results in the paper.
+
+You can check the details in the [code branch](https://github.com/opendilab/SO2/tree/code).
+
+### All scripts
+
+The scripts from installation to execution are all here👏.
+
+```
+# install MuJoCo for Linux
+mkdir -p ~/.mujoco/mujoco210 
+wget https://mujoco.org/download/mujoco210-macos-x86_64.tar.gz -O mujoco210-macos-x86_64.tar.gz
+tar -xf mujoco210-linux-x86_64.tar.gz -C ~/.mujoco/mujoco210 
+pip install -U 'mujoco-py<2.2,>=2.1'
+
+# install D4RL
+pip install git+https://github.com/Farama-Foundation/d4rl@master#egg=d4rl
+
+# install SO2
+conda create --name SO2 python=3.7 -y
+conda activate SO2
+git clone -b code https://github.com/opendilab/SO2.git
+pip install -e SO2
+
+# run d4rl experiment
+# Note download checkpoints and unzip into ckpt folder
+python3 -u train.py 
+```
 
 ## Installation
 
