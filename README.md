@@ -19,6 +19,8 @@ Considering the difficulty of tracking the main branch in the DI-engine updates,
 
 You can check the details in the [code branch](https://github.com/opendilab/SO2/tree/code).
 
+Checkpoints can be downloaded from the following links: [Google Drive](https://drive.google.com/file/d/1ShHXQw2ox3F-9WKLOZo8Qnjn0mEtaQdl/view?usp=drive_link)
+
 ### All scripts
 
 The scripts from installation to execution are all here👏.
