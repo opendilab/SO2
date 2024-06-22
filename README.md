@@ -18,6 +18,8 @@
 
 The scripts from installation to execution are all here👏.
 
+Checkpoints can be downloaded from the following links: [Google Drive](https://drive.google.com/file/d/1ShHXQw2ox3F-9WKLOZo8Qnjn0mEtaQdl/view?usp=drive_link)
+
 ```
 # install MuJoCo for Linux
 mkdir -p ~/.mujoco/mujoco210 
